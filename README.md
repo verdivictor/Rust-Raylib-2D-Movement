@@ -1,6 +1,6 @@
 # Rust Raylib Example
 
-This codebase is a direct translation of a Raylib example originally written in C++. The purpose of this translation is to demonstrate how to use Raylib with Rust and to explore the capabilities of Rust for game development.
+This codebase is a direct translation of the Raylib example "2D Camera platformer" (at https://www.raylib.com/examples.html) originally written in C++. The purpose of this translation is to demonstrate how to use Raylib with Rust and to explore the capabilities of Rust for game development.
 
 ## Running the Project
 
