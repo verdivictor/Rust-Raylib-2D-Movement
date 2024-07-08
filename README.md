@@ -8,6 +8,7 @@ To run the project, use the following command:
 
 ```sh
 cargo run
+```
 
 ## Known Issues
 
