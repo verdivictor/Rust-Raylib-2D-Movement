@@ -84,6 +84,12 @@ fn main() {
     while !rl.window_should_close() {
         let mut d = rl.begin_drawing(&thread);
 
+        if d.is_key_pressed(KeyboardKey::KEY_R) || player.position.x < -500.0 || player.position.x > 1500.0 || player.position.y > 1800.0 {
+            player.position = Vector2::new(400.0, 280.0);
+            player.speed = 0.0;
+            player.can_jump = false;
+        }
+
         if d.is_key_pressed(KeyboardKey::KEY_C) {
             camera_option = (camera_option + 1) % camera_updaters.len();
         }
@@ -97,6 +103,8 @@ fn main() {
         } else if camera.zoom < 0.5 {
             camera.zoom = 0.5;
         }
+
+        println!("Player position: {:#?}", player.position);
 
         camera_updaters[camera_option](
             &d,
@@ -115,7 +123,7 @@ fn main() {
 
         d.clear_background(Color::WHITE);
         {
-            println!("Using camera: {}", camera_option);
+            // println!("Using camera: {}", camera_option);
             let mut d2 = d.begin_mode2D(camera);
             for item in &env_items {
                 d2.draw_rectangle_rec(item.rect, item.color);
